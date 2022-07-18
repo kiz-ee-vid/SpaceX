@@ -11,7 +11,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.spacex.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.lang.Thread.sleep
 import java.net.URL
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -36,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         )
 
         CoroutineScope(Dispatchers.Default).launch {
-            val jsonStr = URL("https://api.spacexdata.com/v4/rockets").readText()
 
 
             setupActionBarWithNavController(navController, appBarConfiguration)

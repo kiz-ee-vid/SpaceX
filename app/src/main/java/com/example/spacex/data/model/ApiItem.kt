@@ -33,17 +33,17 @@ data class Height(
     var feet: Double?,
 )
 
-class Diameter(
+data class Diameter(
     var meters: Double?,
     var feet: Double?
 )
 
-class Mass(
+data class Mass(
     var kg: Int?,
     var lb: Int?
 )
 
-class FirstStage(
+data class FirstStage(
     var thrust_sea_level: ThrustSeaLevel?,
     var thrust_vacuum: ThrustVacuum?,
     var reusable: Boolean?,
@@ -52,17 +52,17 @@ class FirstStage(
     var burn_time_sec: Int?
 )
 
-class ThrustSeaLevel(
+data class ThrustSeaLevel(
     var kN: Int?,
     var lbf: Int?
 )
 
-class ThrustVacuum(
+data class ThrustVacuum(
     var kN: Int?,
     var lbf: Int?
 )
 
-class SecondStage(
+data class SecondStage(
     var thrust: Thrust?,
     var payloads: Payloads?,
     var reusable: Boolean?,
@@ -71,22 +71,22 @@ class SecondStage(
     var burn_time_sec: Int?
 )
 
-class Thrust(
+data class Thrust(
     var kN: Int?,
     var lbf: Int?
 )
 
-class Payloads(
+data class Payloads(
     var composite_fairing: CompositeFairing?,
     var option1: String?,
 )
 
-class CompositeFairing: Serializable {
-    var height: Height? = null
-    var diameter: Diameter? = null
-}
+data class CompositeFairing(
+    var height: Height?,
+    var diameter: Diameter?
+)
 
-class Engines(
+data class Engines(
     var isp: Isp?,
     var thrust_sea_level: ThrustSeaLevel?,
     var thrust_vacuum: ThrustVacuum?,
@@ -100,12 +100,12 @@ class Engines(
     var thrust_to_weight: Double?
 )
 
-class Isp(
+data class Isp(
     var sea_level: Int?,
     var vacuum: Int?
 )
 
-class LandingLegs(
+data class LandingLegs(
     var number: Int?,
     var material: Any?
 )
