@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.spacex.R
 import com.example.spacex.databinding.FragmentHomeBinding
 import com.example.spacex.presentation.di.appComponent
 import javax.inject.Inject
@@ -44,7 +45,7 @@ class HomeFragment : Fragment() {
 //            Navigation
 //                .findNavController(binding.root)
 //                .navigate(
-//                    R.id.action_home_to_advise,
+//                    R.id.action_navigation_home_to_navigation_rocket,
 //                    it,
 //                    null
 //                )

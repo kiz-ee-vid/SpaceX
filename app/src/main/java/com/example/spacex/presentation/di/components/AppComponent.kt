@@ -1,7 +1,7 @@
 package com.example.spacex.presentation.di.components
 
 import android.app.Application
-import com.example.spacex.presentation.dashboard.DashboardFragment
+import com.example.spacex.presentation.rocket.RocketFragment
 import com.example.spacex.presentation.di.modules.BindingModule
 import com.example.spacex.presentation.di.modules.NetworkModule
 import com.example.spacex.presentation.di.modules.ReposModule
@@ -16,7 +16,7 @@ import javax.inject.Singleton
 @Singleton
 interface ApplicationComponent {
     fun inject(activity: HomeFragment)
-    fun inject(activity: DashboardFragment)
+    fun inject(activity: RocketFragment)
     fun inject(activity: NotificationsFragment)
 
     @Component.Builder

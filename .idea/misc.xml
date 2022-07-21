@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android_lessons/SpaceX2/app/src/main/res/drawable/ic_arrow_up_arrow_down.xml" value="0.1" />
+        <entry key="..\:/Android_lessons/SpaceX2/app/src/main/res/font/roboto_medium.xml" value="0.10925925925925926" />
         <entry key="..\:/Android_lessons/SpaceX2/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Android_lessons/SpaceX2/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Android_lessons/SpaceX2/app/src/main/res/layout/fragment_rocket.xml" value="0.264" />
+        <entry key="..\:/Android_lessons/SpaceX2/app/src/main/res/layout/item_image.xml" value="0.14947916666666666" />
         <entry key="..\:/Android_lessons/SpaceX2/app/src/main/res/layout/item_rocket.xml" value="0.14947916666666666" />
         <entry key="..\:/Android_lessons/SpaceX2/app/src/main/res/layout/rocket.xml" value="0.2" />
         <entry key="..\:/Android_lessons/SpaceX2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.11354166666666667" />

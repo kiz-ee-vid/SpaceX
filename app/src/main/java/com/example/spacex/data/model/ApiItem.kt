@@ -1,5 +1,7 @@
 package com.example.spacex.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import java.io.Serializable
 import java.util.ArrayList
 
@@ -11,8 +13,8 @@ data class Rocket(
     var second_stage: SecondStage?,
     var engines: Engines?,
     var landingLegs: LandingLegs?,
-    var payload_weights: MutableList<Any?> = ArrayList<Any?>().toMutableList(),
-    var flickr_images: MutableList<String?> = ArrayList<String?>().toMutableList(),
+    var payload_weights: ArrayList<String?> = ArrayList<String?>(),
+    var flickr_images: ArrayList<String?> = ArrayList<String?>(),
     var name: String?,
     var type: String?,
     var active: Boolean?,
@@ -30,7 +32,7 @@ data class Rocket(
 
 data class Height(
     var meters: Double?,
-    var feet: Double?,
+    var feet: Double?
 )
 
 data class Diameter(
@@ -78,7 +80,7 @@ data class Thrust(
 
 data class Payloads(
     var composite_fairing: CompositeFairing?,
-    var option1: String?,
+    var option1: String?
 )
 
 data class CompositeFairing(
@@ -107,5 +109,5 @@ data class Isp(
 
 data class LandingLegs(
     var number: Int?,
-    var material: Any?
+    var material: String?
 )

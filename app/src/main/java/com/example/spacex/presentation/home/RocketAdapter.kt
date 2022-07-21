@@ -1,6 +1,7 @@
 package com.example.spacex.presentation.home
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.spacex.data.model.Rocket
 import com.example.spacex.databinding.ItemRocketBinding
 
-class RocketAdapter(val itemClick: (Int) -> Unit) :
+class RocketAdapter(val itemClick: (Bundle) -> Unit) :
     RecyclerView.Adapter<RocketAdapter.RocketHolder>() {
 
     private var rocketList = ArrayList<Rocket>()
@@ -32,7 +33,9 @@ class RocketAdapter(val itemClick: (Int) -> Unit) :
         }
 
         holder.itemView.setOnClickListener {
-            itemClick(position)
+            val bundle = Bundle()
+        //    bundle.putParcelable("rocket", rocketList[position])
+            itemClick(bundle)
         }
     }
 
