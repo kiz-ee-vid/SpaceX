@@ -3,9 +3,9 @@ package com.example.spacex.presentation.di.modules
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.spacex.presentation.VMFactory
-import com.example.spacex.presentation.rocket.RocketViewModel
 import com.example.spacex.presentation.di.VMKey
 import com.example.spacex.presentation.home.HomeViewModel
+import com.example.spacex.presentation.launches.LaunchesViewModel
 import com.example.spacex.presentation.notifications.NotificationsViewModel
 import dagger.Binds
 import dagger.Module
@@ -20,8 +20,8 @@ abstract class VMModule {
 
     @Binds
     @IntoMap
-    @VMKey(RocketViewModel::class)
-    abstract fun bindVMProfile(viewModel: RocketViewModel): ViewModel
+    @VMKey(LaunchesViewModel::class)
+    abstract fun bindVMProfile(viewModel: LaunchesViewModel): ViewModel
 
     @Binds
     @IntoMap

@@ -16,10 +16,41 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_launches"
+        android:name="com.example.spacex.presentation.launches.LaunchesFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_launches" >
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_rocket"
         android:name="com.example.spacex.presentation.rocket.RocketFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_rocket" />
+        android:label="@string/rocket"
+        tools:layout="@layout/fragment_rocket" >
+
+        <argument
+            android:name="item"
+            app:argType="com.example.spacex.domain.ui_model.UiRocket" />
+
+        <action
+            android:id="@+id/action_navigation_rocket_to_navigation_web"
+            app:destination="@id/navigation_web" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_web"
+        android:name="com.example.spacex.presentation.web_view.WebFragment"
+        android:label="Wikipedia"
+        tools:layout="@layout/fragment_web" >
+
+        <argument
+            android:name="address"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_navigation_web_to_navigation_rocket"
+            app:destination="@id/navigation_rocket" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"

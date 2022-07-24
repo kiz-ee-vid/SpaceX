@@ -11,4 +11,24 @@
     <string name="height">Height</string>
     <string name="diameter">Diameter</string>
     <string name="images">Images</string>
+    <string name="engines">Engines</string>
+    <string name="type">Type</string>
+    <string name="layout">Layout</string>
+    <string name="version">Version</string>
+    <string name="amount">Amount</string>
+    <string name="propellant1">Propellant 1</string>
+    <string name="propellant2">Propellant 2</string>
+    <string name="first_stage">First stage</string>
+    <string name="reusable">Reusable</string>
+    <string name="engines_amount">Engines amount</string>
+    <string name="fuel_amount">Fuel amount</string>
+    <string name="burning_time">Burning Time</string>
+    <string name="thrust">Thrust</string>
+    <string name="thrust_sea_level">Thrust (sea level)</string>
+    <string name="thrust_vacuum">Thrust (vacuum)</string>
+    <string name="second_stage">Second stage</string>
+    <string name="materials">Materials</string>
+    <string name="landing_legs">Landing legs</string>
+    <string name="material">Material</string>
+    <string name="rocket">Rocket</string>
 </resources>

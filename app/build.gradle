@@ -35,6 +35,7 @@ android {
         viewBinding true
     }
     apply plugin: "kotlin-parcelize"
+    apply plugin: "androidx.navigation.safeargs"
 
 }
 

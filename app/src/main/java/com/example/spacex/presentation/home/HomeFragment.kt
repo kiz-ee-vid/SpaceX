@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spacex.R
@@ -42,13 +43,14 @@ class HomeFragment : Fragment() {
     ): View? {
 
         rocketAdapter = RocketAdapter() {
-//            Navigation
-//                .findNavController(binding.root)
-//                .navigate(
-//                    R.id.action_navigation_home_to_navigation_rocket,
-//                    it,
-//                    null
-//                )
+            val item = homeViewModel.allRockets.value?.get(it)
+            if (item != null){
+                val action = HomeFragmentDirections.actionNavigationHomeToNavigationRocket(item.mapToUiRocket())
+                findNavController().navigate(action)
+            }
+            else{
+                //TODO TOAST
+            }
         }
         rocketRecycler.adapter = rocketAdapter
         rocketRecycler.layoutManager = LinearLayoutManager(context)

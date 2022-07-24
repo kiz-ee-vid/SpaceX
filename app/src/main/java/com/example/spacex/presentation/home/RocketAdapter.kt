@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.spacex.data.model.Rocket
 import com.example.spacex.databinding.ItemRocketBinding
 
-class RocketAdapter(val itemClick: (Bundle) -> Unit) :
+class RocketAdapter(val itemClick: (Int) -> Unit) :
     RecyclerView.Adapter<RocketAdapter.RocketHolder>() {
 
     private var rocketList = ArrayList<Rocket>()
@@ -33,9 +33,7 @@ class RocketAdapter(val itemClick: (Bundle) -> Unit) :
         }
 
         holder.itemView.setOnClickListener {
-            val bundle = Bundle()
-        //    bundle.putParcelable("rocket", rocketList[position])
-            itemClick(bundle)
+            itemClick(position)
         }
     }
 
