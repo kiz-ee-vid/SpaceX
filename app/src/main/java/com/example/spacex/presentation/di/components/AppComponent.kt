@@ -7,6 +7,7 @@ import com.example.spacex.presentation.di.modules.NetworkModule
 import com.example.spacex.presentation.di.modules.ReposModule
 import com.example.spacex.presentation.di.modules.VMModule
 import com.example.spacex.presentation.home.HomeFragment
+import com.example.spacex.presentation.launches.LaunchesFragment
 import com.example.spacex.presentation.notifications.NotificationsFragment
 import dagger.BindsInstance
 import dagger.Component
@@ -16,7 +17,7 @@ import javax.inject.Singleton
 @Singleton
 interface ApplicationComponent {
     fun inject(activity: HomeFragment)
-    fun inject(activity: RocketFragment)
+    fun inject(activity: LaunchesFragment)
     fun inject(activity: NotificationsFragment)
 
     @Component.Builder
