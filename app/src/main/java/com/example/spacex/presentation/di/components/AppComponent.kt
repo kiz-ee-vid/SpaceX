@@ -1,7 +1,6 @@
 package com.example.spacex.presentation.di.components
 
 import android.app.Application
-import com.example.spacex.presentation.rocket.RocketFragment
 import com.example.spacex.presentation.di.modules.BindingModule
 import com.example.spacex.presentation.di.modules.NetworkModule
 import com.example.spacex.presentation.di.modules.ReposModule

@@ -1,4 +1,4 @@
-package com.example.spacex.presentation.rocket
+package com.example.spacex.presentation.home.rocket
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.spacex.data.model.Rocket
 import com.example.spacex.databinding.FragmentRocketBinding
-import com.example.spacex.presentation.home.HomeFragmentDirections
 import javax.inject.Inject
 
 class RocketFragment : Fragment() {

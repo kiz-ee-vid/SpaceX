@@ -15,13 +15,10 @@ class HomeViewModel @Inject constructor(private val repo: RepositoryImpl): ViewM
     val allRockets = MutableLiveData<ArrayList<Rocket>>()
 
     init {
-        println("ILLU")
         CoroutineScope(Dispatchers.IO).launch() {
             try{
-                println("Hello")
                 val data = repo.getListOfRockets()
                 println(data.toString())
-                println("FOOL")
                 withContext(Dispatchers.Main){
                     allRockets.value = data
                 }

@@ -20,11 +20,15 @@
         android:name="com.example.spacex.presentation.launches.LaunchesFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_launches" >
+
+        <action
+            android:id="@+id/action_navigation_launches_to_navigation_launch"
+            app:destination="@id/navigation_launch" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_rocket"
-        android:name="com.example.spacex.presentation.rocket.RocketFragment"
+        android:name="com.example.spacex.presentation.home.rocket.RocketFragment"
         android:label="@string/rocket"
         tools:layout="@layout/fragment_rocket" >
 
@@ -34,6 +38,29 @@
 
         <action
             android:id="@+id/action_navigation_rocket_to_navigation_web"
+            app:destination="@id/navigation_web" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_launch"
+        android:name="com.example.spacex.presentation.launches.launch.LaunchFragment"
+        android:label="Launch"
+        tools:layout="@layout/fragment_launch" >
+
+        <argument
+            android:name="itemLaunch"
+            app:argType="com.example.spacex.domain.ui_model.UiLaunch" />
+
+        <argument
+            android:name="itemRocket"
+            app:argType="com.example.spacex.domain.ui_model.UiRocket" />
+
+        <action
+            android:id="@+id/action_navigation_launches_to_navigation_launch"
+            app:destination="@id/navigation_launch" />
+
+        <action
+            android:id="@+id/action_navigation_launch_to_navigation_web"
             app:destination="@id/navigation_web" />
     </fragment>
 

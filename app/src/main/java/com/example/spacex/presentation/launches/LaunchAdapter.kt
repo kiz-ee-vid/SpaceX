@@ -11,11 +11,12 @@ import com.example.spacex.data.model.Launch
 import com.example.spacex.data.model.Rocket
 import com.example.spacex.databinding.ItemLaunchBinding
 import com.example.spacex.databinding.ItemRocketBinding
+import com.example.spacex.domain.ui_model.UiLaunch
 
 class LaunchAdapter(val itemClick: (Int) -> Unit) :
     RecyclerView.Adapter<LaunchAdapter.LaunchHolder>() {
 
-    private var launchesList = ArrayList<Launch>()
+    private var launchesList = ArrayList<UiLaunch>()
 
     inner class LaunchHolder(val binding: ItemLaunchBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -45,7 +46,7 @@ class LaunchAdapter(val itemClick: (Int) -> Unit) :
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addList(launches: ArrayList<Launch>){
+    fun addList(launches: ArrayList<UiLaunch>){
         launchesList.clear()
         launchesList.addAll(launches)
         notifyDataSetChanged()

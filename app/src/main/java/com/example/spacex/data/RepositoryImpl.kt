@@ -12,7 +12,6 @@ class RepositoryImpl @Inject constructor(private val apiService: ApiService) : I
     }
 
     override suspend fun getListOfLaunches(): ArrayList<Launch>? {
-        println(apiService.getApiLaunches().body())
         return apiService.getApiLaunches().body()
     }
 

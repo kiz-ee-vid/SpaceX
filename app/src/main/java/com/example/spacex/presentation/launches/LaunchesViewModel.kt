@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.example.spacex.data.RepositoryImpl
 import com.example.spacex.data.model.Launch
 import com.example.spacex.data.model.Rocket
+import com.example.spacex.domain.ui_model.UiLaunch
+import com.example.spacex.domain.ui_model.UiRocket
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,16 +16,22 @@ import javax.inject.Inject
 
 class LaunchesViewModel @Inject constructor(private val repo: RepositoryImpl) : ViewModel() {
 
-    val listLaunches = MutableLiveData<ArrayList<Launch>>()
-    private var allLaunches: ArrayList<Launch>? = null
+    val listLaunches = MutableLiveData<ArrayList<UiLaunch>>()
+    private var allLaunches: ArrayList<UiLaunch> = ArrayList()
+    var allRockets: ArrayList<UiRocket> = ArrayList()
     val filter = "All"
 
     init {
         CoroutineScope(Dispatchers.IO).launch() {
             try {
-                allLaunches = repo.getListOfLaunches()
+                repo.getListOfLaunches()?.forEach {
+                    allLaunches.add(it.mapToUiLaunch())
+                }
                 withContext(Dispatchers.Main) {
                     listLaunches.value = allLaunches
+                }
+                repo.getListOfRockets()?.forEach {
+                    allRockets.add(it.mapToUiRocket())
                 }
             } catch (ex: Exception) {
             }
@@ -35,8 +43,8 @@ class LaunchesViewModel @Inject constructor(private val repo: RepositoryImpl) : 
     }
 
     fun filterByPast() {
-        val data = ArrayList<Launch>()
-        allLaunches?.forEach {
+        val data = ArrayList<UiLaunch>()
+        allLaunches.forEach {
             if (it.upcoming == false) {
                 data.add(it)
             }
@@ -45,8 +53,8 @@ class LaunchesViewModel @Inject constructor(private val repo: RepositoryImpl) : 
     }
 
     fun filterByFuture() {
-        val data = ArrayList<Launch>()
-        allLaunches?.forEach {
+        val data = ArrayList<UiLaunch>()
+        allLaunches.forEach {
             if (it.upcoming == true) {
                 data.add(it)
             }

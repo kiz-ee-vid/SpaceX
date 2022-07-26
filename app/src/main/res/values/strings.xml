@@ -31,4 +31,12 @@
     <string name="landing_legs">Landing legs</string>
     <string name="material">Material</string>
     <string name="rocket">Rocket</string>
+    <string name="static_fire_date">Static fire date</string>
+    <string name="launch_date">Launch date</string>
+    <string name="youtube">YouTube</string>
+    <string name="reddit">Reddit</string>
+    <string name="recovery">Recovery</string>
+    <string name="media">Media</string>
+    <string name="campaign">Campaign</string>
+    <string name="launch">Launch</string>
 </resources>

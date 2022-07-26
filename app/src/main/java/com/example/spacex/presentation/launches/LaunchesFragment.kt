@@ -19,6 +19,7 @@ import com.example.spacex.presentation.di.appComponent
 import com.example.spacex.presentation.home.HomeFragmentDirections
 import com.example.spacex.presentation.home.HomeViewModel
 import com.example.spacex.presentation.home.RocketAdapter
+import com.example.spacex.presentation.launches.launch.LaunchFragmentDirections
 import java.util.ArrayList
 import javax.inject.Inject
 
@@ -59,14 +60,15 @@ class LaunchesFragment : Fragment() {
             }
         }
         launchAdapter = LaunchAdapter() {
-//            val item = launchesViewModel.allLaunches.value?.get(it)
-//            if (item != null){
-//                val action = LaunchFragmentDirections.actionNavigationHomeToNavigationRocket(item.mapToUiLaunch())
-//                findNavController().navigate(action)
-//            }
-//            else{
-//                //TODO TOAST
-//            }
+            val itemLaunch = launchesViewModel.listLaunches.value?.get(it)
+            val itemRocket = launchesViewModel.allRockets.find { rocket -> rocket.id.equals(itemLaunch?.rocket) }
+            if (itemLaunch != null && itemRocket != null){
+                val action = LaunchFragmentDirections.actionNavigationLaunchesToNavigationLaunch(itemLaunch, itemRocket)
+                findNavController().navigate(action)
+            }
+            else{
+                //TODO TOAST
+            }
         }
         launchRecycler.adapter = launchAdapter
         launchRecycler.layoutManager = LinearLayoutManager(context)
