@@ -27,6 +27,12 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_launchpads"
+        android:name="com.example.spacex.presentation.launchpads.LaunchpadsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_launchpads" />
+
+    <fragment
         android:id="@+id/navigation_rocket"
         android:name="com.example.spacex.presentation.home.rocket.RocketFragment"
         android:label="@string/rocket"
@@ -79,9 +85,5 @@
             app:destination="@id/navigation_rocket" />
     </fragment>
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.spacex.presentation.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+
 </navigation>

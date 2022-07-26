@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spacex.databinding.FragmentHomeBinding
 import com.example.spacex.databinding.FragmentLaunchesBinding
-import com.example.spacex.databinding.FragmentNotificationsBinding
 import com.example.spacex.presentation.di.appComponent
 import com.example.spacex.presentation.home.HomeFragmentDirections
 import com.example.spacex.presentation.home.HomeViewModel

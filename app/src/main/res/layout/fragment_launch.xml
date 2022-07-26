@@ -37,7 +37,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/launchTitle"
+                            android:id="@+id/launchpadTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingStart="30dp"
@@ -49,7 +49,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/launchDate"
+                            android:id="@+id/launchpadCity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="5dp"
@@ -64,7 +64,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/number"
+                                android:id="@+id/launchpadStatus"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"

@@ -1,6 +1,7 @@
 package com.example.spacex.data
 
 import com.example.spacex.data.model.Launch
+import com.example.spacex.data.model.Launchpad
 import com.example.spacex.data.model.Rocket
 import com.example.spacex.domain.Constants
 import retrofit2.Response
@@ -12,5 +13,8 @@ interface ApiService {
 
     @GET(Constants.LAUNCHES_ENDPOINT)
     suspend fun getApiLaunches(): Response<ArrayList<Launch>>
+
+    @GET(Constants.LAUNCHES_ENDPOINT)
+    suspend fun getApiLaunchpads(): Response<ArrayList<Launchpad>>
 }
 
