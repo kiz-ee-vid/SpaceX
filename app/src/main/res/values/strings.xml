@@ -50,4 +50,10 @@
     <string name="choose_your_option">Choose your option:</string>
     <string name="access">Access</string>
     <string name="cancel">Cancel</string>
+    <string name="rockets_filter">Rockets filter</string>
+    <string name="launches_filter">Launches filter</string>
+    <string name="launchpads_filter">Launchpads filter</string>
+    <string name="future">Future</string>
+    <string name="past">Past</string>
+    <string name="all">All</string>
 </resources>

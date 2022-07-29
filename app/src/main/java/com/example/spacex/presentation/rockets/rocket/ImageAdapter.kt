@@ -1,4 +1,4 @@
-package com.example.spacex.presentation.home.rocket
+package com.example.spacex.presentation.rockets.rocket
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

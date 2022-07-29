@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide
 import com.example.spacex.MainActivity
 import com.example.spacex.R
 import com.example.spacex.databinding.FragmentLaunchBinding
-import com.example.spacex.presentation.home.rocket.ImageAdapter
+import com.example.spacex.presentation.rockets.rocket.ImageAdapter
 import javax.inject.Inject
 
 class LaunchFragment : Fragment() {
@@ -137,7 +137,7 @@ class LaunchFragment : Fragment() {
         return binding.root
     }
 
-    override fun onDestroyView() {
+    override fun onDestroy() {
         (activity as MainActivity).binding.navView.visibility = View.VISIBLE
         super.onDestroyView()
     }

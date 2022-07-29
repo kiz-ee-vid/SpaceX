@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.spacex.MainActivity
 import com.example.spacex.databinding.FragmentLaunchpadBinding
 import com.example.spacex.domain.ui_model.UiLaunchpad
-import com.example.spacex.presentation.home.rocket.ImageAdapter
+import com.example.spacex.presentation.rockets.rocket.ImageAdapter
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -29,7 +29,7 @@ class LaunchpadFragment : Fragment(), OnMapReadyCallback {
     @Inject
     lateinit var vmFactory: ViewModelProvider.Factory
 
-    lateinit var imageAdapter: ImageAdapter
+    private lateinit var imageAdapter: ImageAdapter
     private val binding: FragmentLaunchpadBinding by lazy {
         FragmentLaunchpadBinding.inflate(
             layoutInflater
@@ -116,7 +116,7 @@ class LaunchpadFragment : Fragment(), OnMapReadyCallback {
         mapView.onLowMemory()
     }
 
-    override fun onDestroyView() {
+    override fun onDestroy() {
         (activity as MainActivity).binding.navView.visibility = View.VISIBLE
         super.onDestroyView()
     }

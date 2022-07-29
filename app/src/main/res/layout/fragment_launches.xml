@@ -12,11 +12,10 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/rocketsFilter"
+        app:layout_constraintEnd_toStartOf="@+id/launchesFilter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -30,7 +29,7 @@
             android:checked="false"
             android:gravity="center"
             android:padding="3dp"
-            android:text="All"
+            android:text="@string/all"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
 
@@ -43,7 +42,7 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:padding="3dp"
-            android:text="Past"
+            android:text="@string/past"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
 
@@ -56,7 +55,7 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:padding="3dp"
-            android:text="Future"
+            android:text="@string/future"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
     </RadioGroup>
@@ -70,15 +69,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
-    <ImageView
-        android:id="@+id/rocketsFilter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
+    <Button
+        android:id="@+id/launchesFilter"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/ic_arrow_up_arrow_down"
+        android:contentDescription="@string/launches_filter"
+        app:backgroundTint="@color/orange"
         app:layout_constraintBottom_toTopOf="@+id/launchRecycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_up_arrow_down"
-        app:tint="@color/orange" />
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

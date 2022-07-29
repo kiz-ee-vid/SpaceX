@@ -61,4 +61,19 @@ class LaunchesViewModel @Inject constructor(private val repo: RepositoryImpl) : 
         }
         listLaunches.value = data
     }
+
+    fun sortByLaunchDate(){
+        listLaunches.value?.sortBy { it.dateUtc }
+        listLaunches.postValue(listLaunches.value)
+    }
+
+    fun sortByTitle(){
+        listLaunches.value?.sortBy { it.name }
+        listLaunches.postValue(listLaunches.value)
+    }
+
+    fun sortByDate(){
+        listLaunches.value?.sortBy { it.staticFireDateUtc }
+        listLaunches.postValue(listLaunches.value)
+    }
 }

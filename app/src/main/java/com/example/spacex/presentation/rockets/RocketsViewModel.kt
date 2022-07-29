@@ -1,4 +1,4 @@
-package com.example.spacex.presentation.home
+package com.example.spacex.presentation.rockets
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(private val repo: RepositoryImpl): ViewModel() {
+class RocketsViewModel @Inject constructor(private val repo: RepositoryImpl): ViewModel() {
 
     val allRockets = MutableLiveData<ArrayList<Rocket>>()
 
@@ -26,17 +26,17 @@ class HomeViewModel @Inject constructor(private val repo: RepositoryImpl): ViewM
         }
     }
 
-    fun filterByFirstLaunch(){
+    fun sortByFirstLaunch(){
         allRockets.value?.sortBy { it.first_flight }
         allRockets.postValue(allRockets.value)
     }
 
-    fun filterByLaunchCost(){
+    fun sortByLaunchCost(){
         allRockets.value?.sortBy { it.cost_per_launch }
         allRockets.postValue(allRockets.value)
     }
 
-    fun filterBySuccessRate(){
+    fun sortBySuccessRate(){
         allRockets.value?.sortByDescending { it.success_rate_pct }
         allRockets.postValue(allRockets.value)
     }

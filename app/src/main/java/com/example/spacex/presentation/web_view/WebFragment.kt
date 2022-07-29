@@ -12,7 +12,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.example.spacex.MainActivity
 import com.example.spacex.R
-import com.example.spacex.databinding.FragmentRocketBinding
 import com.example.spacex.databinding.FragmentWebBinding
 
 class WebFragment : Fragment() {
@@ -21,7 +20,6 @@ class WebFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (activity as MainActivity).binding.navView.visibility = View.GONE
-        setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
     }
 
@@ -52,7 +50,6 @@ class WebFragment : Fragment() {
     }
 
     override fun onDestroy() {
-        (activity as MainActivity).binding.navView.visibility = View.VISIBLE
         super.onDestroyView()
     }
 }

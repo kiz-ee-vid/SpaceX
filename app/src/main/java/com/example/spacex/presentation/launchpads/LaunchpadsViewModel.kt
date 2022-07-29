@@ -58,4 +58,14 @@ class LaunchpadsViewModel @Inject constructor(private val repo: RepositoryImpl) 
         }
         listLaunchpads.value = data
     }
+
+    fun sortByTitle(){
+        listLaunchpads.value?.sortBy { it.name }
+        listLaunchpads.postValue(listLaunchpads.value)
+    }
+
+    fun sortByRegion(){
+        listLaunchpads.value?.sortBy { it.region }
+        listLaunchpads.postValue(listLaunchpads.value)
+    }
 }

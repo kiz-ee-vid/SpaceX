@@ -1,14 +1,14 @@
-package com.example.spacex.presentation.home
+package com.example.spacex.presentation.rockets
 
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
-import android.system.Os.access
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -16,19 +16,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spacex.R
 import com.example.spacex.databinding.CustomDialogBinding
-import com.example.spacex.databinding.FragmentHomeBinding
+import com.example.spacex.databinding.FragmentRocketsBinding
 import com.example.spacex.presentation.di.appComponent
 import javax.inject.Inject
 
-class HomeFragment : Fragment() {
+class RocketsFragment : Fragment() {
 
     @Inject
     lateinit var vmFactory: ViewModelProvider.Factory
 
-    private val homeViewModel: HomeViewModel by lazy {
-        ViewModelProvider(this, vmFactory)[HomeViewModel::class.java]
+    private val homeViewModel: RocketsViewModel by lazy {
+        ViewModelProvider(this, vmFactory)[RocketsViewModel::class.java]
     }
-    private val binding: FragmentHomeBinding by lazy { FragmentHomeBinding.inflate(layoutInflater) }
+    private val binding: FragmentRocketsBinding by lazy { FragmentRocketsBinding.inflate(layoutInflater) }
     lateinit var rocketAdapter: RocketAdapter
     private val rocketRecycler: RecyclerView by lazy { binding.rocketRecycler }
 
@@ -47,10 +47,10 @@ class HomeFragment : Fragment() {
             val item = homeViewModel.allRockets.value?.get(it)
             if (item != null) {
                 val action =
-                    HomeFragmentDirections.actionNavigationHomeToNavigationRocket(item.mapToUiRocket())
+                    RocketsFragmentDirections.actionNavigationHomeToNavigationRocket(item.mapToUiRocket())
                 findNavController().navigate(action)
             } else {
-                //TODO TOAST
+                Toast.makeText(binding.root.context, "Nothing to show", Toast.LENGTH_SHORT).show()
             }
         }
         rocketRecycler.adapter = rocketAdapter
@@ -74,26 +74,27 @@ class HomeFragment : Fragment() {
         dialogBinding.option2.text = "Launch cost"
         dialogBinding.option3.text = "Success rate"
         builder.setView(dialogBinding.root)
-
+            .setCancelable(false)
             .setPositiveButton(
                 R.string.access,
                 DialogInterface.OnClickListener { _, _ ->
                     when (dialogBinding.optionsGroup.checkedRadioButtonId) {
                         dialogBinding.option1.id -> {
-                            homeViewModel.filterByFirstLaunch()
+                            homeViewModel.sortByFirstLaunch()
                         }
                         dialogBinding.option2.id -> {
-                            homeViewModel.filterByLaunchCost()
+                            homeViewModel.sortByLaunchCost()
                         }
                         dialogBinding.option3.id -> {
-                            homeViewModel.filterBySuccessRate()
+                            homeViewModel.sortBySuccessRate()
                         }
                     }
+                    dialogBinding.optionsGroup.clearCheck()
                 })
             .setNeutralButton(
                 R.string.cancel,
                 DialogInterface.OnClickListener { _, _ ->
-
+                    dialogBinding.optionsGroup.clearCheck()
                 }
             )
         return builder.create()

@@ -1,6 +1,9 @@
 package com.example.spacex.presentation.launchpads
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.spacex.R
+import com.example.spacex.databinding.CustomDialogBinding
 import com.example.spacex.databinding.FragmentLaunchesBinding
 import com.example.spacex.databinding.FragmentLaunchpadsBinding
 import com.example.spacex.presentation.di.appComponent
@@ -65,6 +70,7 @@ class LaunchpadsFragment : Fragment() {
         }
         launchpadRecycler.adapter = launchpadAdapter
         launchpadRecycler.layoutManager = LinearLayoutManager(context)
+        val filterDialog = makeDialog()
 
         launchpadsViewModel.listLaunchpads.observe(viewLifecycleOwner) {
             launchpadAdapter.addList(it)
@@ -82,7 +88,42 @@ class LaunchpadsFragment : Fragment() {
             launchpadsViewModel.filterByRetired()
         }
 
+        binding.launchpadsFilter.setOnClickListener {
+            filterDialog.show()
+        }
+
         return binding.root
+    }
+
+    private fun makeDialog(): Dialog {
+        val builder = AlertDialog.Builder(binding.root.context)
+        val dialogBinding = CustomDialogBinding.inflate(layoutInflater)
+        dialogBinding.option1.text = "Title"
+        dialogBinding.option2.text = "Region"
+        dialogBinding.option3.visibility = View.GONE
+        builder.setView(dialogBinding.root)
+
+            .setPositiveButton(
+                R.string.access,
+                DialogInterface.OnClickListener { _, _ ->
+                    when (dialogBinding.optionsGroup.checkedRadioButtonId) {
+                        dialogBinding.option1.id -> {
+                            launchpadsViewModel.sortByTitle()
+                        }
+                        dialogBinding.option2.id -> {
+                            launchpadsViewModel.sortByRegion()
+                        }
+                    }
+                    dialogBinding.optionsGroup.clearCheck()
+                })
+            .setNeutralButton(
+                R.string.cancel,
+                DialogInterface.OnClickListener { _, _ ->
+                    dialogBinding.optionsGroup.clearCheck()
+                }
+            )
+        dialogBinding.optionsGroup.clearCheck()
+        return builder.create()
     }
 
     override fun onDestroyView() {
