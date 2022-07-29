@@ -36,7 +36,7 @@ class LaunchAdapter(val itemClick: (Int) -> Unit) :
                 upcoming.setImageResource(R.drawable.ic_completed)
             }
             else upcoming.setImageResource(R.drawable.ic_upcoming)
-            number.text = "#".plus(launchesList[position].flightNumber)
+            launchNumber.text = "#".plus(launchesList[position].flightNumber)
         }
 
 

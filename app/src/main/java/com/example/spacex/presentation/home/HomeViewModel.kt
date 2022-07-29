@@ -20,9 +20,24 @@ class HomeViewModel @Inject constructor(private val repo: RepositoryImpl): ViewM
                 val data = repo.getListOfRockets()
                 println(data.toString())
                 withContext(Dispatchers.Main){
-                    allRockets.value = data
+                    allRockets.postValue(data)
                 }
             } catch (ex:Exception){}
         }
+    }
+
+    fun filterByFirstLaunch(){
+        allRockets.value?.sortBy { it.first_flight }
+        allRockets.postValue(allRockets.value)
+    }
+
+    fun filterByLaunchCost(){
+        allRockets.value?.sortBy { it.cost_per_launch }
+        allRockets.postValue(allRockets.value)
+    }
+
+    fun filterBySuccessRate(){
+        allRockets.value?.sortByDescending { it.success_rate_pct }
+        allRockets.postValue(allRockets.value)
     }
 }

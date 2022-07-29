@@ -16,12 +16,13 @@ class LaunchpadsViewModel @Inject constructor(private val repo: RepositoryImpl) 
 
     val listLaunchpads = MutableLiveData<ArrayList<UiLaunchpad>>()
     private var allLaunchpads: ArrayList<UiLaunchpad> = ArrayList()
+    var filter = "all"
 
     init {
         CoroutineScope(Dispatchers.IO).launch() {
             try {
                 repo.getListOfLaunchpads()?.forEach {
-                    allLaunchpads.add(it.mapToUiLaunch())
+                    allLaunchpads.add(it.mapToUiLaunchpad())
                 }
                 withContext(Dispatchers.Main) {
                     listLaunchpads.value = allLaunchpads
@@ -29,5 +30,32 @@ class LaunchpadsViewModel @Inject constructor(private val repo: RepositoryImpl) 
             } catch (ex: Exception) {
             }
         }
+    }
+
+    fun filterByAll() {
+        listLaunchpads.value = allLaunchpads
+        filter = "all"
+    }
+
+    fun filterByActive() {
+        val data = ArrayList<UiLaunchpad>()
+        allLaunchpads.forEach {
+            if (it.status == "active") {
+                data.add(it)
+            }
+            filter = "active"
+        }
+        listLaunchpads.value = data
+    }
+
+    fun filterByRetired() {
+        val data = ArrayList<UiLaunchpad>()
+        allLaunchpads.forEach {
+            if (it.status == "retired") {
+                data.add(it)
+            }
+            filter = "retired"
+        }
+        listLaunchpads.value = data
     }
 }

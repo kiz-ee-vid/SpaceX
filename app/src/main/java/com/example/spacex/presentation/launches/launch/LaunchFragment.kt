@@ -43,6 +43,7 @@ class LaunchFragment : Fragment() {
             Glide.with(launchImage)
                 .load(itemLaunch.links?.patch?.large)
                 .into(launchImage)
+
             launchTitle.text = itemLaunch.name
             launchDate.text = itemLaunch.dateUtc?.substring(0, 10) ?: "No data"
             if (itemLaunch.upcoming == false){

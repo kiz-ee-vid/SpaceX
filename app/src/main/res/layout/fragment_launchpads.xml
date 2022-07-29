@@ -16,12 +16,12 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/rocketsFilter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/allRadioButton"
+            android:id="@+id/allLaunchpads"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -35,7 +35,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
-            android:id="@+id/pastRadioButton"
+            android:id="@+id/activeLaunchpads"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -43,12 +43,12 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:padding="3dp"
-            android:text="Past"
+            android:text="@string/active"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
 
         <RadioButton
-            android:id="@+id/futureRadioButton"
+            android:id="@+id/retiredLaunchpads"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -56,7 +56,7 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:padding="3dp"
-            android:text="Future"
+            android:text="@string/retired"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
     </RadioGroup>
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/rocketsFilter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"

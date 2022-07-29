@@ -39,4 +39,15 @@
     <string name="media">Media</string>
     <string name="campaign">Campaign</string>
     <string name="launch">Launch</string>
+    <string name="overview">Overview</string>
+    <string name="region">Region</string>
+    <string name="launch_attempts">Launch attempts</string>
+    <string name="launch_success">Launch success</string>
+    <string name="location">Location</string>
+    <string name="active">Active</string>
+    <string name="retired">Retired</string>
+    <string name="success_rate">Success rate</string>
+    <string name="choose_your_option">Choose your option:</string>
+    <string name="access">Access</string>
+    <string name="cancel">Cancel</string>
 </resources>

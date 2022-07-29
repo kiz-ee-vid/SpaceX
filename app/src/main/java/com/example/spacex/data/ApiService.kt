@@ -14,7 +14,7 @@ interface ApiService {
     @GET(Constants.LAUNCHES_ENDPOINT)
     suspend fun getApiLaunches(): Response<ArrayList<Launch>>
 
-    @GET(Constants.LAUNCHES_ENDPOINT)
+    @GET(Constants.LAUNCHPADS_ENDPOINT)
     suspend fun getApiLaunchpads(): Response<ArrayList<Launchpad>>
 }
 
