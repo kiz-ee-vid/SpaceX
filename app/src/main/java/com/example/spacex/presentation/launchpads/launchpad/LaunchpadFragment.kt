@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.spacex.MainActivity
 import com.example.spacex.databinding.FragmentLaunchpadBinding
 import com.example.spacex.domain.ui_model.UiLaunchpad
 import com.example.spacex.presentation.home.rocket.ImageAdapter
@@ -38,6 +39,11 @@ class LaunchpadFragment : Fragment(), OnMapReadyCallback {
     private lateinit var nmap: GoogleMap
     private lateinit var mapView: CustomMapView
     private lateinit var item: UiLaunchpad
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        (activity as MainActivity).binding.navView.visibility = View.GONE
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -71,10 +77,6 @@ class LaunchpadFragment : Fragment(), OnMapReadyCallback {
         mapView.getMapAsync(this)
 
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -112,5 +114,10 @@ class LaunchpadFragment : Fragment(), OnMapReadyCallback {
     override fun onLowMemory() {
         super.onLowMemory()
         mapView.onLowMemory()
+    }
+
+    override fun onDestroyView() {
+        (activity as MainActivity).binding.navView.visibility = View.VISIBLE
+        super.onDestroyView()
     }
 }

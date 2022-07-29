@@ -10,17 +10,19 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
+import com.example.spacex.MainActivity
 import com.example.spacex.R
+import com.example.spacex.databinding.FragmentRocketBinding
 import com.example.spacex.databinding.FragmentWebBinding
 
 class WebFragment : Fragment() {
 
-    private var _binding: FragmentWebBinding? = null
-    private val binding get() = _binding!!
+    private val binding: FragmentWebBinding by lazy { FragmentWebBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        (activity as MainActivity).binding.navView.visibility = View.GONE
         setHasOptionsMenu(true)
+        super.onCreate(savedInstanceState)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -28,8 +30,7 @@ class WebFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentWebBinding.inflate(inflater, container, false)
-        val args : WebFragmentArgs by navArgs()
+        val args: WebFragmentArgs by navArgs()
         val address = args.address
 
         binding.webBrowser.loadUrl(address)
@@ -48,5 +49,10 @@ class WebFragment : Fragment() {
             }
         }
         return true
+    }
+
+    override fun onDestroy() {
+        (activity as MainActivity).binding.navView.visibility = View.VISIBLE
+        super.onDestroyView()
     }
 }

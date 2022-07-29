@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.spacex.MainActivity
 import com.example.spacex.R
 import com.example.spacex.databinding.FragmentLaunchBinding
 import com.example.spacex.presentation.home.rocket.ImageAdapter
@@ -30,6 +31,11 @@ class LaunchFragment : Fragment() {
         )
     }
     private val no = "No Data"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        (activity as MainActivity).binding.navView.visibility = View.GONE
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -132,6 +138,7 @@ class LaunchFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        (activity as MainActivity).binding.navView.visibility = View.VISIBLE
         super.onDestroyView()
     }
 }
