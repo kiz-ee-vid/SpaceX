@@ -52,13 +52,13 @@ class LaunchFragment : Fragment() {
 
             launchTitle.text = itemLaunch.name
             launchDate.text = itemLaunch.dateUtc?.substring(0, 10) ?: "No data"
-            if (itemLaunch.upcoming == false){
+            if (itemLaunch.upcoming == false) {
                 upcoming.setImageResource(R.drawable.ic_completed)
-            }
-            else upcoming.setImageResource(R.drawable.ic_upcoming)
+            } else upcoming.setImageResource(R.drawable.ic_upcoming)
             number.text = "#".plus(itemLaunch.flightNumber)
             descript.text = itemLaunch.details ?: no
-            staticLaunchDateRes.text = itemLaunch.staticFireDateUtc?.substring(0, 10) ?: "No fire date"
+            staticLaunchDateRes.text =
+                itemLaunch.staticFireDateUtc?.substring(0, 10) ?: "No fire date"
             dateLaunchRes.text = itemLaunch.dateUtc?.substring(0, 10) ?: "Upcoming"
             successRes.text = itemLaunch.success.toString()
 
@@ -84,54 +84,49 @@ class LaunchFragment : Fragment() {
                         LaunchFragmentDirections.actionNavigationLaunchToNavigationWeb(itemLaunch.links!!.wikipedia!!)
                     findNavController().navigate(action)
                 } else
-                    Toast.makeText(binding.root.context, "Nothing to show", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(binding.root.context, "Nothing to show", Toast.LENGTH_SHORT)
+                        .show()
             }
 
-            youTube.setOnClickListener {
-                if (itemLaunch.links?.webcast != null) {
+            if (itemLaunch.links?.webcast != null) {
+                youTube.setOnClickListener {
                     val action =
                         LaunchFragmentDirections.actionNavigationLaunchToNavigationWeb(itemLaunch.links!!.webcast!!)
                     findNavController().navigate(action)
-                } else
-                    Toast.makeText(binding.root.context, "Nothing to show", Toast.LENGTH_SHORT).show()
-            }
+                }
+            } else youTube.isEnabled = false
 
-            recovery.setOnClickListener {
-                if (itemLaunch.links?.reddit?.recovery != null) {
+            if (itemLaunch.links?.reddit?.recovery != null) {
+                recovery.setOnClickListener {
                     val action =
                         LaunchFragmentDirections.actionNavigationLaunchToNavigationWeb(itemLaunch.links!!.reddit!!.recovery!!)
                     findNavController().navigate(action)
-                } else
-                    Toast.makeText(binding.root.context, "Nothing to show", Toast.LENGTH_SHORT).show()
-            }
+                }
+            } else recovery.isEnabled = false
 
-            media.setOnClickListener {
-                if (itemLaunch.links?.reddit?.media != null) {
+            if (itemLaunch.links?.reddit?.media != null) {
+                media.setOnClickListener {
                     val action =
                         LaunchFragmentDirections.actionNavigationLaunchToNavigationWeb(itemLaunch.links!!.reddit!!.media!!)
                     findNavController().navigate(action)
-                } else
-                    Toast.makeText(binding.root.context, "Nothing to show", Toast.LENGTH_SHORT).show()
-            }
+                }
+            } else media.isEnabled = false
 
-            recovery.setOnClickListener {
-                if (itemLaunch.links?.reddit?.campaign != null) {
+            if (itemLaunch.links?.reddit?.campaign != null) {
+                campaign.setOnClickListener {
                     val action =
                         LaunchFragmentDirections.actionNavigationLaunchToNavigationWeb(itemLaunch.links!!.reddit!!.campaign!!)
                     findNavController().navigate(action)
-                } else
-                    Toast.makeText(binding.root.context, "Nothing to show", Toast.LENGTH_SHORT).show()
-            }
+                }
+            } else campaign.isEnabled = false
 
-            recovery.setOnClickListener {
-                if (itemLaunch.links?.reddit?.launch != null) {
+            if (itemLaunch.links?.reddit?.launch != null) {
+                launch.setOnClickListener {
                     val action =
                         LaunchFragmentDirections.actionNavigationLaunchToNavigationWeb(itemLaunch.links!!.reddit!!.launch!!)
                     findNavController().navigate(action)
-                } else
-                    Toast.makeText(binding.root.context, "Nothing to show", Toast.LENGTH_SHORT).show()
-            }
-
+                }
+            } else launch.isEnabled = false
         }
 
         return binding.root

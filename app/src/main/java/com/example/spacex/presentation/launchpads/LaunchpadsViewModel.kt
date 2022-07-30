@@ -1,10 +1,8 @@
 package com.example.spacex.presentation.launchpads
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.spacex.data.RepositoryImpl
-import com.example.spacex.domain.ui_model.UiLaunch
 import com.example.spacex.domain.ui_model.UiLaunchpad
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

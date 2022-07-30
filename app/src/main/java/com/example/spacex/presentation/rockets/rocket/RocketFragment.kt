@@ -23,7 +23,6 @@ class RocketFragment : Fragment() {
     lateinit var vmFactory: ViewModelProvider.Factory
 
     lateinit var imageAdapter: ImageAdapter
-    private val imageRecycler: RecyclerView by lazy { binding.imageRecycler }
     private val binding: FragmentRocketBinding by lazy {
         FragmentRocketBinding.inflate(
             layoutInflater
